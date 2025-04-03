@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on darwin)" generated="2025-04-03T10:59:54.947259" rpa="false" schemaversion="5">
+<suite id="s1" name="Fitur-Login" source="/Users/wahyunusantaraazis/PycharmProjects/poc-robotframework-api/Tests/fitur-login.robot">
+<test id="s1-t1" name="Login API - Success Test" line="21">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-04-03T10:59:55.031101" level="INFO">${full_url} = https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login</msg>
+<var>${full_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BASE_URL}</arg>
+<arg>${LOGIN_ENDPOINT}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-04-03T10:59:55.030975" elapsed="0.000147"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-03T10:59:55.031384" level="INFO">${login_payload} = {'username': 'wahyunusantaraazis', 'password': 'Admin123!'}</msg>
+<var>${login_payload}</var>
+<arg>username=${VALID_USERNAME}</arg>
+<arg>password=${VALID_PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-03T10:59:55.031221" elapsed="0.000177"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-03T10:59:55.031532" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-03T10:59:55.031463" elapsed="0.000079"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-04-03T10:59:57.041608" level="INFO">POST Request : url=https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login 
+ path_url=/api/cms/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '59'} 
+ body=b'{"username": "wahyunusantaraazis", "password": "Admin123!"}' 
+ </msg>
+<msg time="2025-04-03T10:59:57.042042" level="INFO">POST Response : url=https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login 
+ status=200, reason=OK 
+ headers={'content-security-policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://tagmanager.google.com;script-src-elem 'self' 'unsafe-inline' .googletagmanager.com  \t\t\t\t\t\t\t\t\thttps://.fontawesome.com; style-src 'self' 'unsafe-inline' https://tagmanager.google.com https://*.googleapis.com;style-src-elem 'self' 'unsafe-inline'  \t\t\t\t\t\t\t\t\thttps://tagmanager.google.com https://*.googleapis.com; object-src 'self'; media-src 'self';font-src 'self' https://fonts.gstatic.com https://*.fontawesome.com data:; img-src 'self'  \t\t\t\t\t\t\t\t\thttp://www.w3.org data: blob:; connect-src 'self' https://www.google-analytics.com https://*.googleapis.com https://*.fontawesome.com", 'content-type': 'application/json; charset=UTF-8', 'tag-version': 'v1.18.30-staging', 'vary': 'Origin, Origin', 'x-xss-protection': '1; mode=block, : 1;mode=block', 'date': 'Thu, 03 Apr 2025 03:59:57 GMT', 'transfer-encoding': 'chunked', 'strict-transport-security': 'max-age=16000000; includeSubDomains; preload;', 'x-frame-options': 'sameorigin', 'x-content-type-options': 'nosniff'} 
+ body={"status":"Success","message":"Success login","data":{"id":8301,"username":"wahyunusantaraazis","first_name":"bfkFZkB","email":"shuym717@example.com","last_name":"bfkFZkB","avatar":"","address":"Jalan Kemenangan","have_login":true,"branch_employee_id":0,"ao_sales_status":"","employee_position":"","employee_id":"","branch_id":169,"branch_code":"999","branch_name":"HEAD OFFICE","role_id":1,"role_name":"SA","token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ3YWh5dW51c2FudGFyYWF6aXMiLCJleHAiOjE3NDM2NjM1OTUsInN1YiI6IjgzMDEifQ.kBbCu9cgoAAB-TcXqn-77i52XB910j-lMTuBJG-6fwZpXXUDKJAEUD8NQLIF57AxGm1ZuoAxLciJ3Zcm_xrUDg","phone":"085155002098","menu":[{"id":83,"display_name":"STOCK FINANCING","href":"","is_parent":true,"name":"stock-financing-parent-menu","icon":"fas fa-calendar-alt","index":1,"child":[{"id":84,"display_name":"Pengajuan Plafon","href":"","is_parent":true,"name":"pengajuan-plafon-sub-menu","icon":"fas fa-calendar-alt","index":2,"child":[{"id":85,"display_name":"Pengajuan Plafon SF","href":"stock-financing","is_parent":false,"name":"stock-financing","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":86,"display_name":"Manajemen Pengajuan SF","href":"management-stock-financing","is_parent":false,"name":"management-stock-financing","icon":"fas fa-calendar-alt","index":3,"child":null}]},{"id":87,"display_name":"Transaksi Plafon","href":"","is_parent":true,"name":"transaction-sf-parent-menu","icon":"fas fa-calendar-alt","index":2,"child":[{"id":88,"display_name":"Transaksi Plafon SF","href":"transaction-plafon-sf","is_parent":false,"name":"transaction-plafon-sf","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":89,"display_name":"Manajemen Transaksi SF","href":"management-transaction-sf","is_parent":false,"name":"management-transaction-sf","icon":"fas fa-calendar-alt","index":3,"child":null}]}]},{"id":90,"display_name":"Kunjungan Dealer","href":"","is_parent":true,"name":"kunjungan-dealer","icon":"fas fa-address-card","index":1,"child":[{"id":94,"display_name":"Manajemen Prospek","href":"management-prospect","is_parent":false,"name":"management-prospect","icon":"fas fa-toolbox","index":2,"child":null},{"id":95,"display_name":"Manajemen Kunjungan Dealer","href":"management-dealer-visit","is_parent":false,"name":"management-dealer-visit","icon":"fas fa-toolbox","index":2,"child":null},{"id":96,"display_name":"Reporting Kunjungan Dealer","href":"reporting-dealer-visit","is_parent":false,"name":"reporting-dealer-visit","icon":"fas fa-toolbox","index":2,"child":null},{"id":97,"display_name":"Master Kunjungan Dealer","href":"master-kunjungan-dealer","is_parent":false,"name":"master-kunjungan-dealer","icon":"fas fa-toolbox","index":2,"child":null}]},{"id":7,"display_name":"Master","href":"","is_parent":true,"name":"master","icon":"fab fa-android","index":1,"child":[{"id":10,"display_name":"Master Cabang","href":"","is_parent":true,"name":"master-cabang","icon":"","index":2,"child":[{"id":17,"display_name":"Manajemen Cabang","href":"manajemen-cabang","is_parent":false,"name":"manajemen-cabang","icon":"","index":3,"child":null},{"id":18,"display_name":"Manajemen Data Cabang","href":"manajemen-data-cabang","is_parent":false,"name":"manajemen-data-cabang","icon":"","index":3,"child":null},{"id":20,"display_name":"Menu Manajemen","href":"menu","is_parent":false,"name":"menu","icon":"","index":3,"child":null},{"id":21,"display_name":"Role Manajemen","href":"role","is_parent":false,"name":"role","icon":"","index":3,"child":null},{"id":19,"display_name":"User Manajemen","href":"users","is_parent":false,"name":"users","icon":"fas fa-users","index":3,"child":null}]},{"id":12,"display_name":"Master Application","href":"","is_parent":true,"name":"master-application","icon":"","index":2,"child":[{"id":26,"display_name":"Tipe Industri","href":"tipe-industri","is_parent":false,"name":"tipe-industri","icon":"","index":3,"child":null},{"id":27,"display_name":"Supplier","href":"supplier","is_parent":false,"name":"supplier","icon":"","index":3,"child":null},{"id":28,"display_name":"Salesman","href":"salesman","is_parent":false,"name":"salesman","icon":"","index":3,"child":null},{"id":29,"display_name":"Waktu Pengajuan Aplikasi","href":"waktu-pengajuan-aplikasi","is_parent":false,"name":"waktu-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":30,"display_name":"Waktu Ganti Password CRO","href":"waktu-ganti-password-cro","is_parent":false,"name":"waktu-ganti-password-cro","icon":"","index":3,"child":null},{"id":31,"display_name":"Vendor","href":"vendor","is_parent":false,"name":"vendor","icon":"","index":3,"child":null},{"id":32,"display_name":"Profesi","href":"profesi","is_parent":false,"name":"profesi","icon":"","index":3,"child":null},{"id":33,"display_name":"Tipe Pekerjaan","href":"tipe-pekerjaan","is_parent":false,"name":"tipe-pekerjaan","icon":"","index":3,"child":null},{"id":34,"display_name":"Posisi Pekerjaan","href":"posisi-pekerjaan","is_parent":false,"name":"posisi-pekerjaan","icon":"","index":3,"child":null},{"id":35,"display_name":"Asuransi","href":"asuransi","is_parent":false,"name":"asuransi","icon":"","index":3,"child":null},{"id":36,"display_name":"Akun Bank Supplier","href":"akun-bank-supplier","is_parent":false,"name":"akun-bank-supplier","icon":"","index":3,"child":null},{"id":37,"display_name":"Text Editor","href":"text-editor","is_parent":false,"name":"text-editor","icon":"","index":3,"child":null},{"id":38,"display_name":"Reason","href":"reason","is_parent":false,"name":"reason","icon":"","index":3,"child":null},{"id":39,"display_name":"Masking Product Offering","href":"masking-product-offering","is_parent":false,"name":"masking-product-offering","icon":"","index":3,"child":null},{"id":40,"display_name":"Bottom Rate","href":"bottom-rate","is_parent":false,"name":"bottom-rate","icon":"","index":3,"child":null},{"id":41,"display_name":"Token User","href":"token-user","is_parent":false,"name":"token-user","icon":"","index":3,"child":null},{"id":42,"display_name":"Status Aplikasi","href":"status-aplikasi","is_parent":false,"name":"status-aplikasi","icon":"","index":3,"child":null},{"id":43,"display_name":"Refferal","href":"refferal","is_parent":false,"name":"refferal","icon":"","index":3,"child":null},{"id":44,"display_name":"Bank","href":"bank","is_parent":false,"name":"bank","icon":"","index":3,"child":null}]},{"id":13,"display_name":"Master CRO","href":"","is_parent":true,"name":"master-CRO","icon":"","index":2,"child":[{"id":45,"display_name":"Jam Kerja CRO","href":"jam-kerja-cro","is_parent":false,"name":"jam-kerja-CRO","icon":"","index":3,"child":null}]},{"id":14,"display_name":"Master Konfigurasi Aplikasi","href":"","is_parent":true,"name":"master-konfigurasi-aplikasi","icon":"","index":2,"child":[{"id":47,"display_name":"Konfigurasi Pengajuan Aplikasi","href":"konfigurasi-pengajuan-aplikasi","is_parent":false,"name":"konfigurasi-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":48,"display_name":"Konfigurasi Pembagian Waktu","href":"konfigurasi-pembagian-waktu","is_parent":false,"name":"konfigurasi-pembagian-waktu","icon":"","index":3,"child":null},{"id":49,"display_name":"Konfigurasi Minimum Price","href":"konfigurasi-minimum-price","is_parent":false,"name":"konfigurasi-minimum-price","icon":"","index":3,"child":null},{"id":50,"display_name":"Setting Aplikasi","href":"setting-aplikasi","is_parent":false,"name":"setting-aplikasi","icon":"","index":3,"child":null},{"id":46,"display_name":"Konfigurasi App Version","href":"app-version","is_parent":false,"name":"app-version","icon":"fas fa-menu","index":3,"child":null},{"id":70,"display_name":"Config otp SMS","href":"config-otp-sms","is_parent":false,"name":"config-otp-sms","icon":"fa","index":3,"child":null}]},{"id":15,"display_name":"Master KMB","href":"","is_parent":true,"name":"master-KMB","icon":"","index":2,"child":[{"id":51,"display_name":"Manajemen Cabang KMB","href":"manajemen-cabang-kmb","is_parent":false,"name":"manajemen-cabang-KMB","icon":"","index":3,"child":null},{"id":52,"display_name":"Asuransi KMB","href":"asuransi-kmb","is_parent":false,"name":"asuransi-KMB","icon":"","index":3,"child":null}]},{"id":16,"display_name":"Master Wilayah","href":"","is_parent":true,"name":"master-wilayah","icon":"","index":2,"child":[{"id":22,"display_name":"Provinsi","href":"provinsi","is_parent":false,"name":"provinsi","icon":"","index":3,"child":null},{"id":23,"display_name":"Kota","href":"kota","is_parent":false,"name":"kota","icon":"","index":3,"child":null},{"id":24,"display_name":"Kecamatan","href":"kecamatan","is_parent":false,"name":"kecamatan","icon":"","index":3,"child":null},{"id":25,"display_name":"Kelurahan","href":"kelurahan","is_parent":false,"name":"kelurahan","icon":"","index":3,"child":null}]}]},{"id":6,"display_name":"Report dan History","href":"","is_parent":true,"name":"report-history","icon":"fas fa-book","index":1,"child":[{"id":9,"display_name":"History","href":"","is_parent":true,"name":"history","icon":"","index":2,"child":[{"id":58,"display_name":"OTP","href":"otp","is_parent":false,"name":"OTP","icon":"","index":3,"child":null},{"id":60,"display_name":"Delete Pengajuan Aplikasi","href":"delete-pengajuan-aplikasi","is_parent":false,"name":"delete-pengajuan-aplikasi","icon":"","index":3,"child":null}]},{"id":8,"display_name":"Report","href":"","is_parent":true,"name":"report_history","icon":"fa","index":2,"child":[{"id":54,"display_name":"User","href":"user","is_parent":false,"name":"user","icon":"","index":3,"child":null},{"id":55,"display_name":"Return CRO","href":"return-cro","is_parent":false,"name":"return-CRO","icon":"","index":3,"child":null},{"id":56,"display_name":"sla","href":"SLA","is_parent":false,"name":"SLA","icon":"","index":3,"child":null}]}]},{"id":74,"display_name":"setting","href":"setting","is_parent":false,"name":"setting","icon":"setting","index":1,"child":null},{"id":3,"display_name":"Setting Sync","href":"setting-sync","is_parent":false,"name":"setting-sync","icon":"fas fa-sync... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-04-03T10:59:57.043062" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${full_url}</arg>
+<arg>json=${login_payload}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-04-03T10:59:55.031593" elapsed="2.011545"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-03T10:59:57.045016" level="INFO">{"status":"Success","message":"Success login","data":{"id":8301,"username":"wahyunusantaraazis","first_name":"bfkFZkB","email":"shuym717@example.com","last_name":"bfkFZkB","avatar":"","address":"Jalan Kemenangan","have_login":true,"branch_employee_id":0,"ao_sales_status":"","employee_position":"","employee_id":"","branch_id":169,"branch_code":"999","branch_name":"HEAD OFFICE","role_id":1,"role_name":"SA","token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ3YWh5dW51c2FudGFyYWF6aXMiLCJleHAiOjE3NDM2NjM1OTUsInN1YiI6IjgzMDEifQ.kBbCu9cgoAAB-TcXqn-77i52XB910j-lMTuBJG-6fwZpXXUDKJAEUD8NQLIF57AxGm1ZuoAxLciJ3Zcm_xrUDg","phone":"085155002098","menu":[{"id":83,"display_name":"STOCK FINANCING","href":"","is_parent":true,"name":"stock-financing-parent-menu","icon":"fas fa-calendar-alt","index":1,"child":[{"id":84,"display_name":"Pengajuan Plafon","href":"","is_parent":true,"name":"pengajuan-plafon-sub-menu","icon":"fas fa-calendar-alt","index":2,"child":[{"id":85,"display_name":"Pengajuan Plafon SF","href":"stock-financing","is_parent":false,"name":"stock-financing","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":86,"display_name":"Manajemen Pengajuan SF","href":"management-stock-financing","is_parent":false,"name":"management-stock-financing","icon":"fas fa-calendar-alt","index":3,"child":null}]},{"id":87,"display_name":"Transaksi Plafon","href":"","is_parent":true,"name":"transaction-sf-parent-menu","icon":"fas fa-calendar-alt","index":2,"child":[{"id":88,"display_name":"Transaksi Plafon SF","href":"transaction-plafon-sf","is_parent":false,"name":"transaction-plafon-sf","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":89,"display_name":"Manajemen Transaksi SF","href":"management-transaction-sf","is_parent":false,"name":"management-transaction-sf","icon":"fas fa-calendar-alt","index":3,"child":null}]}]},{"id":90,"display_name":"Kunjungan Dealer","href":"","is_parent":true,"name":"kunjungan-dealer","icon":"fas fa-address-card","index":1,"child":[{"id":94,"display_name":"Manajemen Prospek","href":"management-prospect","is_parent":false,"name":"management-prospect","icon":"fas fa-toolbox","index":2,"child":null},{"id":95,"display_name":"Manajemen Kunjungan Dealer","href":"management-dealer-visit","is_parent":false,"name":"management-dealer-visit","icon":"fas fa-toolbox","index":2,"child":null},{"id":96,"display_name":"Reporting Kunjungan Dealer","href":"reporting-dealer-visit","is_parent":false,"name":"reporting-dealer-visit","icon":"fas fa-toolbox","index":2,"child":null},{"id":97,"display_name":"Master Kunjungan Dealer","href":"master-kunjungan-dealer","is_parent":false,"name":"master-kunjungan-dealer","icon":"fas fa-toolbox","index":2,"child":null}]},{"id":7,"display_name":"Master","href":"","is_parent":true,"name":"master","icon":"fab fa-android","index":1,"child":[{"id":10,"display_name":"Master Cabang","href":"","is_parent":true,"name":"master-cabang","icon":"","index":2,"child":[{"id":17,"display_name":"Manajemen Cabang","href":"manajemen-cabang","is_parent":false,"name":"manajemen-cabang","icon":"","index":3,"child":null},{"id":18,"display_name":"Manajemen Data Cabang","href":"manajemen-data-cabang","is_parent":false,"name":"manajemen-data-cabang","icon":"","index":3,"child":null},{"id":20,"display_name":"Menu Manajemen","href":"menu","is_parent":false,"name":"menu","icon":"","index":3,"child":null},{"id":21,"display_name":"Role Manajemen","href":"role","is_parent":false,"name":"role","icon":"","index":3,"child":null},{"id":19,"display_name":"User Manajemen","href":"users","is_parent":false,"name":"users","icon":"fas fa-users","index":3,"child":null}]},{"id":12,"display_name":"Master Application","href":"","is_parent":true,"name":"master-application","icon":"","index":2,"child":[{"id":26,"display_name":"Tipe Industri","href":"tipe-industri","is_parent":false,"name":"tipe-industri","icon":"","index":3,"child":null},{"id":27,"display_name":"Supplier","href":"supplier","is_parent":false,"name":"supplier","icon":"","index":3,"child":null},{"id":28,"display_name":"Salesman","href":"salesman","is_parent":false,"name":"salesman","icon":"","index":3,"child":null},{"id":29,"display_name":"Waktu Pengajuan Aplikasi","href":"waktu-pengajuan-aplikasi","is_parent":false,"name":"waktu-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":30,"display_name":"Waktu Ganti Password CRO","href":"waktu-ganti-password-cro","is_parent":false,"name":"waktu-ganti-password-cro","icon":"","index":3,"child":null},{"id":31,"display_name":"Vendor","href":"vendor","is_parent":false,"name":"vendor","icon":"","index":3,"child":null},{"id":32,"display_name":"Profesi","href":"profesi","is_parent":false,"name":"profesi","icon":"","index":3,"child":null},{"id":33,"display_name":"Tipe Pekerjaan","href":"tipe-pekerjaan","is_parent":false,"name":"tipe-pekerjaan","icon":"","index":3,"child":null},{"id":34,"display_name":"Posisi Pekerjaan","href":"posisi-pekerjaan","is_parent":false,"name":"posisi-pekerjaan","icon":"","index":3,"child":null},{"id":35,"display_name":"Asuransi","href":"asuransi","is_parent":false,"name":"asuransi","icon":"","index":3,"child":null},{"id":36,"display_name":"Akun Bank Supplier","href":"akun-bank-supplier","is_parent":false,"name":"akun-bank-supplier","icon":"","index":3,"child":null},{"id":37,"display_name":"Text Editor","href":"text-editor","is_parent":false,"name":"text-editor","icon":"","index":3,"child":null},{"id":38,"display_name":"Reason","href":"reason","is_parent":false,"name":"reason","icon":"","index":3,"child":null},{"id":39,"display_name":"Masking Product Offering","href":"masking-product-offering","is_parent":false,"name":"masking-product-offering","icon":"","index":3,"child":null},{"id":40,"display_name":"Bottom Rate","href":"bottom-rate","is_parent":false,"name":"bottom-rate","icon":"","index":3,"child":null},{"id":41,"display_name":"Token User","href":"token-user","is_parent":false,"name":"token-user","icon":"","index":3,"child":null},{"id":42,"display_name":"Status Aplikasi","href":"status-aplikasi","is_parent":false,"name":"status-aplikasi","icon":"","index":3,"child":null},{"id":43,"display_name":"Refferal","href":"refferal","is_parent":false,"name":"refferal","icon":"","index":3,"child":null},{"id":44,"display_name":"Bank","href":"bank","is_parent":false,"name":"bank","icon":"","index":3,"child":null}]},{"id":13,"display_name":"Master CRO","href":"","is_parent":true,"name":"master-CRO","icon":"","index":2,"child":[{"id":45,"display_name":"Jam Kerja CRO","href":"jam-kerja-cro","is_parent":false,"name":"jam-kerja-CRO","icon":"","index":3,"child":null}]},{"id":14,"display_name":"Master Konfigurasi Aplikasi","href":"","is_parent":true,"name":"master-konfigurasi-aplikasi","icon":"","index":2,"child":[{"id":47,"display_name":"Konfigurasi Pengajuan Aplikasi","href":"konfigurasi-pengajuan-aplikasi","is_parent":false,"name":"konfigurasi-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":48,"display_name":"Konfigurasi Pembagian Waktu","href":"konfigurasi-pembagian-waktu","is_parent":false,"name":"konfigurasi-pembagian-waktu","icon":"","index":3,"child":null},{"id":49,"display_name":"Konfigurasi Minimum Price","href":"konfigurasi-minimum-price","is_parent":false,"name":"konfigurasi-minimum-price","icon":"","index":3,"child":null},{"id":50,"display_name":"Setting Aplikasi","href":"setting-aplikasi","is_parent":false,"name":"setting-aplikasi","icon":"","index":3,"child":null},{"id":46,"display_name":"Konfigurasi App Version","href":"app-version","is_parent":false,"name":"app-version","icon":"fas fa-menu","index":3,"child":null},{"id":70,"display_name":"Config otp SMS","href":"config-otp-sms","is_parent":false,"name":"config-otp-sms","icon":"fa","index":3,"child":null}]},{"id":15,"display_name":"Master KMB","href":"","is_parent":true,"name":"master-KMB","icon":"","index":2,"child":[{"id":51,"display_name":"Manajemen Cabang KMB","href":"manajemen-cabang-kmb","is_parent":false,"name":"manajemen-cabang-KMB","icon":"","index":3,"child":null},{"id":52,"display_name":"Asuransi KMB","href":"asuransi-kmb","is_parent":false,"name":"asuransi-KMB","icon":"","index":3,"child":null}]},{"id":16,"display_name":"Master Wilayah","href":"","is_parent":true,"name":"master-wilayah","icon":"","index":2,"child":[{"id":22,"display_name":"Provinsi","href":"provinsi","is_parent":false,"name":"provinsi","icon":"","index":3,"child":null},{"id":23,"display_name":"Kota","href":"kota","is_parent":false,"name":"kota","icon":"","index":3,"child":null},{"id":24,"display_name":"Kecamatan","href":"kecamatan","is_parent":false,"name":"kecamatan","icon":"","index":3,"child":null},{"id":25,"display_name":"Kelurahan","href":"kelurahan","is_parent":false,"name":"kelurahan","icon":"","index":3,"child":null}]}]},{"id":6,"display_name":"Report dan History","href":"","is_parent":true,"name":"report-history","icon":"fas fa-book","index":1,"child":[{"id":9,"display_name":"History","href":"","is_parent":true,"name":"history","icon":"","index":2,"child":[{"id":58,"display_name":"OTP","href":"otp","is_parent":false,"name":"OTP","icon":"","index":3,"child":null},{"id":60,"display_name":"Delete Pengajuan Aplikasi","href":"delete-pengajuan-aplikasi","is_parent":false,"name":"delete-pengajuan-aplikasi","icon":"","index":3,"child":null}]},{"id":8,"display_name":"Report","href":"","is_parent":true,"name":"report_history","icon":"fa","index":2,"child":[{"id":54,"display_name":"User","href":"user","is_parent":false,"name":"user","icon":"","index":3,"child":null},{"id":55,"display_name":"Return CRO","href":"return-cro","is_parent":false,"name":"return-CRO","icon":"","index":3,"child":null},{"id":56,"display_name":"sla","href":"SLA","is_parent":false,"name":"SLA","icon":"","index":3,"child":null}]}]},{"id":74,"display_name":"setting","href":"setting","is_parent":false,"name":"setting","icon":"setting","index":1,"child":null},{"id":3,"display_name":"Setting Sync","href":"setting-sync","is_parent":false,"name":"setting-sync","icon":"fas fa-sync","index":1,"child":null},{"id":76,"display_name":"Setting target","href":"targets","is_parent":false,"name":"targets","icon":"targets","index":1,"child":null}],"child_menu":[{"id":3,"display_name":"Setting Sync","href":"setting-sync","is_parent":false,"name":"setting-sync","icon":"fas fa-sync","index":1,"child":null},{"id":6,"display_name":"Report dan History","href":"","is_parent":true,"name":"report-history","icon":"fas fa-book","index":1,"child":null},{"id":7,"display_name":"Master","href":"","is_parent":true,"name":"master","icon":"fab fa-android","index":1,"child":null},{"id":8,"display_name":"Report","href":"","is_parent":true,"name":"report_history","icon":"fa","index":2,"child":null},{"id":9,"display_name":"History","href":"","is_parent":true,"name":"history","icon":"","index":2,"child":null},{"id":10,"display_name":"Master Cabang","href":"","is_parent":true,"name":"master-cabang","icon":"","index":2,"child":null},{"id":11,"display_name":"Master User","href":"","is_parent":true,"name":"master-user","icon":"","index":2,"child":null},{"id":12,"display_name":"Master Application","href":"","is_parent":true,"name":"master-application","icon":"","index":2,"child":null},{"id":13,"display_name":"Master CRO","href":"","is_parent":true,"name":"master-CRO","icon":"","index":2,"child":null},{"id":14,"display_name":"Master Konfigurasi Aplikasi","href":"","is_parent":true,"name":"master-konfigurasi-aplikasi","icon":"","index":2,"child":null},{"id":15,"display_name":"Master KMB","href":"","is_parent":true,"name":"master-KMB","icon":"","index":2,"child":null},{"id":16,"display_name":"Master Wilayah","href":"","is_parent":true,"name":"master-wilayah","icon":"","index":2,"child":null},{"id":17,"display_name":"Manajemen Cabang","href":"manajemen-cabang","is_parent":false,"name":"manajemen-cabang","icon":"","index":3,"child":null},{"id":18,"display_name":"Manajemen Data Cabang","href":"manajemen-data-cabang","is_parent":false,"name":"manajemen-data-cabang","icon":"","index":3,"child":null},{"id":19,"display_name":"User Manajemen","href":"users","is_parent":false,"name":"users","icon":"fas fa-users","index":3,"child":null},{"id":20,"display_name":"Menu Manajemen","href":"menu","is_parent":false,"name":"menu","icon":"","index":3,"child":null},{"id":21,"display_name":"Role Manajemen","href":"role","is_parent":false,"name":"role","icon":"","index":3,"child":null},{"id":22,"display_name":"Provinsi","href":"provinsi","is_parent":false,"name":"provinsi","icon":"","index":3,"child":null},{"id":23,"display_name":"Kota","href":"kota","is_parent":false,"name":"kota","icon":"","index":3,"child":null},{"id":24,"display_name":"Kecamatan","href":"kecamatan","is_parent":false,"name":"kecamatan","icon":"","index":3,"child":null},{"id":25,"display_name":"Kelurahan","href":"kelurahan","is_parent":false,"name":"kelurahan","icon":"","index":3,"child":null},{"id":26,"display_name":"Tipe Industri","href":"tipe-industri","is_parent":false,"name":"tipe-industri","icon":"","index":3,"child":null},{"id":27,"display_name":"Supplier","href":"supplier","is_parent":false,"name":"supplier","icon":"","index":3,"child":null},{"id":28,"display_name":"Salesman","href":"salesman","is_parent":false,"name":"salesman","icon":"","index":3,"child":null},{"id":29,"display_name":"Waktu Pengajuan Aplikasi","href":"waktu-pengajuan-aplikasi","is_parent":false,"name":"waktu-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":30,"display_name":"Waktu Ganti Password CRO","href":"waktu-ganti-password-cro","is_parent":false,"name":"waktu-ganti-password-cro","icon":"","index":3,"child":null},{"id":31,"display_name":"Vendor","href":"vendor","is_parent":false,"name":"vendor","icon":"","index":3,"child":null},{"id":32,"display_name":"Profesi","href":"profesi","is_parent":false,"name":"profesi","icon":"","index":3,"child":null},{"id":33,"display_name":"Tipe Pekerjaan","href":"tipe-pekerjaan","is_parent":false,"name":"tipe-pekerjaan","icon":"","index":3,"child":null},{"id":34,"display_name":"Posisi Pekerjaan","href":"posisi-pekerjaan","is_parent":false,"name":"posisi-pekerjaan","icon":"","index":3,"child":null},{"id":35,"display_name":"Asuransi","href":"asuransi","is_parent":false,"name":"asuransi","icon":"","index":3,"child":null},{"id":36,"display_name":"Akun Bank Supplier","href":"akun-bank-supplier","is_parent":false,"name":"akun-bank-supplier","icon":"","index":3,"child":null},{"id":37,"display_name":"Text Editor","href":"text-editor","is_parent":false,"name":"text-editor","icon":"","index":3,"child":null},{"id":38,"display_name":"Reason","href":"reason","is_parent":false,"name":"reason","icon":"","index":3,"child":null},{"id":39,"display_name":"Masking Product Offering","href":"masking-product-offering","is_parent":false,"name":"masking-product-offering","icon":"","index":3,"child":null},{"id":40,"display_name":"Bottom Rate","href":"bottom-rate","is_parent":false,"name":"bottom-rate","icon":"","index":3,"child":null},{"id":41,"display_name":"Token User","href":"token-user","is_parent":false,"name":"token-user","icon":"","index":3,"child":null},{"id":42,"display_name":"Status Aplikasi","href":"status-aplikasi","is_parent":false,"name":"status-aplikasi","icon":"","index":3,"child":null},{"id":43,"display_name":"Refferal","href":"refferal","is_parent":false,"name":"refferal","icon":"","index":3,"child":null},{"id":44,"display_name":"Bank","href":"bank","is_parent":false,"name":"bank","icon":"","index":3,"child":null},{"id":45,"display_name":"Jam Kerja CRO","href":"jam-kerja-cro","is_parent":false,"name":"jam-kerja-CRO","icon":"","index":3,"child":null},{"id":46,"display_name":"Konfigurasi App Version","href":"app-version","is_parent":false,"name":"app-version","icon":"fas fa-menu","index":3,"child":null},{"id":47,"display_name":"Konfigurasi Pengajuan Aplikasi","href":"konfigurasi-pengajuan-aplikasi","is_parent":false,"name":"konfigurasi-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":48,"display_name":"Konfigurasi Pembagian Waktu","href":"konfigurasi-pembagian-waktu","is_parent":false,"name":"konfigurasi-pembagian-waktu","icon":"","index":3,"child":null},{"id":49,"display_name":"Konfigurasi Minimum Price","href":"konfigurasi-minimum-price","is_parent":false,"name":"konfigurasi-minimum-price","icon":"","index":3,"child":null},{"id":50,"display_name":"Setting Aplikasi","href":"setting-aplikasi","is_parent":false,"name":"setting-aplikasi","icon":"","index":3,"child":null},{"id":51,"display_name":"Manajemen Cabang KMB","href":"manajemen-cabang-kmb","is_parent":false,"name":"manajemen-cabang-KMB","icon":"","index":3,"child":null},{"id":52,"display_name":"Asuransi KMB","href":"asuransi-kmb","is_parent":false,"name":"asuransi-KMB","icon":"","index":3,"child":null},{"id":54,"display_name":"User","href":"user","is_parent":false,"name":"user","icon":"","index":3,"child":null},{"id":55,"display_name":"Return CRO","href":"return-cro","is_parent":false,"name":"return-CRO","icon":"","index":3,"child":null},{"id":56,"display_name":"sla","href":"SLA","is_parent":false,"name":"SLA","icon":"","index":3,"child":null},{"id":57,"display_name":"Absensi CRO Manajemen","href":"","is_parent":true,"name":"absensi-CRO-manajemen","icon":"address-book","index":3,"child":null},{"id":58,"display_name":"OTP","href":"otp","is_parent":false,"name":"OTP","icon":"","index":3,"child":null},{"id":60,"display_name":"Delete Pengajuan Aplikasi","href":"delete-pengajuan-aplikasi","is_parent":false,"name":"delete-pengajuan-aplikasi","icon":"","index":3,"child":null},{"id":70,"display_name":"Config otp SMS","href":"config-otp-sms","is_parent":false,"name":"config-otp-sms","icon":"fa","index":3,"child":null},{"id":74,"display_name":"setting","href":"setting","is_parent":false,"name":"setting","icon":"setting","index":1,"child":null},{"id":76,"display_name":"Setting target","href":"targets","is_parent":false,"name":"targets","icon":"targets","index":1,"child":null},{"id":77,"display_name":"Manajemen agen","href":"","is_parent":true,"name":"manajemen-agen","icon":"fa fa-list-ul","index":1,"child":null},{"id":83,"display_name":"STOCK FINANCING","href":"","is_parent":true,"name":"stock-financing-parent-menu","icon":"fas fa-calendar-alt","index":1,"child":null},{"id":84,"display_name":"Pengajuan Plafon","href":"","is_parent":true,"name":"pengajuan-plafon-sub-menu","icon":"fas fa-calendar-alt","index":2,"child":null},{"id":85,"display_name":"Pengajuan Plafon SF","href":"stock-financing","is_parent":false,"name":"stock-financing","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":86,"display_name":"Manajemen Pengajuan SF","href":"management-stock-financing","is_parent":false,"name":"management-stock-financing","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":87,"display_name":"Transaksi Plafon","href":"","is_parent":true,"name":"transaction-sf-parent-menu","icon":"fas fa-calendar-alt","index":2,"child":null},{"id":88,"display_name":"Transaksi Plafon SF","href":"transaction-plafon-sf","is_parent":false,"name":"transaction-plafon-sf","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":89,"display_name":"Manajemen Transaksi SF","href":"management-transaction-sf","is_parent":false,"name":"management-transaction-sf","icon":"fas fa-calendar-alt","index":3,"child":null},{"id":90,"display_name":"Kunjungan Dealer","href":"","is_parent":true,"name":"kunjungan-dealer","icon":"fas fa-address-card","index":1,"child":null},{"id":94,"display_name":"Manajemen Prospek","href":"management-prospect","is_parent":false,"name":"management-prospect","icon":"fas fa-toolbox","index":2,"child":null},{"id":95,"display_name":"Manajemen Kunjungan Dealer","href":"management-dealer-visit","is_parent":false,"name":"management-dealer-visit","icon":"fas fa-toolbox","index":2,"child":null},{"id":96,"display_name":"Reporting Kunjungan Dealer","href":"reporting-dealer-visit","is_parent":false,"name":"reporting-dealer-visit","icon":"fas fa-toolbox","index":2,"child":null},{"id":97,"display_name":"Master Kunjungan Dealer","href":"master-kunjungan-dealer","is_parent":false,"name":"master-kunjungan-dealer","icon":"fas fa-toolbox","index":2,"child":null}],"is_uc":true,"multi_branch":"","is_los_journey":false,"lob":""}}
+</msg>
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.043700" elapsed="0.001846"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-04-03T10:59:57.046322" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.045746" elapsed="0.000867"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-03T10:59:57.049476" level="INFO">${response_data} = {'status': 'Success', 'message': 'Success login', 'data': {'id': 8301, 'username': 'wahyunusantaraazis', 'first_name': 'bfkFZkB', 'email': 'shuym717@example.com', 'last_name': 'bfkFZkB', 'avatar': '',...</msg>
+<var>${response_data}</var>
+<arg>json.loads('''${response.text}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.047075" elapsed="0.002455"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-04-03T10:59:57.050425" level="INFO">${username} = wahyunusantaraazis</msg>
+<var>${username}</var>
+<arg>${response_data['data']}</arg>
+<arg>username</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.049738" elapsed="0.000722"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${username}</arg>
+<arg>${EXPECTED_USERNAME}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.050638" elapsed="0.000242"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-04-03T10:59:57.051629" level="INFO">${phone} = 085155002098</msg>
+<var>${phone}</var>
+<arg>${response_data['data']}</arg>
+<arg>phone</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.051057" elapsed="0.000602"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${phone}</arg>
+<arg>${EXPECTED_PHONE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.051940" elapsed="0.000212"/>
+</kw>
+<doc>This test case tests a successful login with valid credentials.</doc>
+<tag>api</tag>
+<status status="PASS" start="2025-04-03T10:59:55.030489" elapsed="2.021842"/>
+</test>
+<test id="s1-t2" name="Login API - Failure Test" line="50">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-04-03T10:59:57.053269" level="INFO">${full_url} = https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login</msg>
+<var>${full_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BASE_URL}</arg>
+<arg>${LOGIN_ENDPOINT}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.053054" elapsed="0.000245"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-03T10:59:57.053761" level="INFO">${login_payload} = {'username': 'wahyunusantaraazis', 'password': 'Test123!'}</msg>
+<var>${login_payload}</var>
+<arg>username=${INVALID_USERNAME}</arg>
+<arg>password=${INVALID_PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.053449" elapsed="0.000341"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-03T10:59:57.054110" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-03T10:59:57.053955" elapsed="0.000180"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-04-03T10:59:57.443818" level="INFO">POST Request : url=https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login 
+ path_url=/api/cms/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"username": "wahyunusantaraazis", "password": "Test123!"}' 
+ </msg>
+<msg time="2025-04-03T10:59:57.444370" level="INFO">POST Response : url=https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login 
+ status=400, reason=Bad Request 
+ headers={'content-security-policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://tagmanager.google.com;script-src-elem 'self' 'unsafe-inline' .googletagmanager.com  \t\t\t\t\t\t\t\t\thttps://.fontawesome.com; style-src 'self' 'unsafe-inline' https://tagmanager.google.com https://*.googleapis.com;style-src-elem 'self' 'unsafe-inline'  \t\t\t\t\t\t\t\t\thttps://tagmanager.google.com https://*.googleapis.com; object-src 'self'; media-src 'self';font-src 'self' https://fonts.gstatic.com https://*.fontawesome.com data:; img-src 'self'  \t\t\t\t\t\t\t\t\thttp://www.w3.org data: blob:; connect-src 'self' https://www.google-analytics.com https://*.googleapis.com https://*.fontawesome.com", 'content-type': 'application/json; charset=UTF-8', 'tag-version': 'v1.18.30-staging', 'vary': 'Origin, Origin', 'x-xss-protection': '1; mode=block, : 1;mode=block', 'date': 'Thu, 03 Apr 2025 03:59:57 GMT', 'content-length': '87', 'strict-transport-security': 'max-age=16000000; includeSubDomains; preload;', 'x-frame-options': 'sameorigin', 'x-content-type-options': 'nosniff'} 
+ body={"status":"Failed","validation":{"Login":"Login Gagal. Username atau password salah"}}
+ 
+ </msg>
+<msg time="2025-04-03T10:59:57.444954" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login</msg>
+<var>${response}</var>
+<arg>${full_url}</arg>
+<arg>json=${login_payload}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request.</doc>
+<status status="FAIL" start="2025-04-03T10:59:57.054346" elapsed="0.396493">HTTPError: 400 Client Error: Bad Request for url: https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.451344" elapsed="0.000060"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.451604" elapsed="0.000029"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${response_data}</var>
+<arg>json.loads('''${response.text}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.451793" elapsed="0.000025"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${status}</var>
+<arg>${response_data}</arg>
+<arg>status</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.451963" elapsed="0.000024"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>Failed</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.452133" elapsed="0.000025"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${validation_message}</var>
+<arg>${response_data['validation']}</arg>
+<arg>Login</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.452331" elapsed="0.000022"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${validation_message}</arg>
+<arg>Login Gagal. Username atau password salah</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-04-03T10:59:57.452485" elapsed="0.000021"/>
+</kw>
+<doc>This test case tests a failed login with invalid credentials.</doc>
+<tag>api</tag>
+<status status="FAIL" start="2025-04-03T10:59:57.052580" elapsed="0.400214">HTTPError: 400 Client Error: Bad Request for url: https://staging-sally-api.kbfinansia.com/api/cms/v1/auth/login</status>
+</test>
+<status status="FAIL" start="2025-04-03T10:59:54.948745" elapsed="2.504675"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="1" skip="0">api</stat>
+</tag>
+<suite>
+<stat name="Fitur-Login" id="s1" pass="1" fail="1" skip="0">Fitur-Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-03T10:59:55.030184" level="ERROR">Error in file '/Users/wahyunusantaraazis/PycharmProjects/poc-robotframework-api/Tests/fitur-login.robot' on line 4: Importing library 'JSON' failed: ModuleNotFoundError: No module named 'JSON'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Library/Frameworks/Python.framework/Versions/3.13/bin
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python313.zip
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages</msg>
+</errors>
+</robot>
