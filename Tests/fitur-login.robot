@@ -24,26 +24,20 @@ Login API - Success Test
     ${full_url}=    Catenate    SEPARATOR=    ${BASE_URL}    ${LOGIN_ENDPOINT}
     ${login_payload}=    Create Dictionary    username=${VALID_USERNAME}    password=${VALID_PASSWORD}
 
-    # Define headers
     ${headers}=    Create Dictionary    Content-Type=application/json
 
-    # Send POST request with headers
     ${response}=    POST    ${full_url}    json=${login_payload}    headers=${headers}
 
-    # Log the response text to inspect the structure of the returned JSON
     Log    ${response.text}
 
-    # Ensure the response status code is 200
     Should Be Equal As Numbers    ${response.status_code}    200
 
     # Convert the JSON response to a dictionary using json.loads() from the JSON library
     ${response_data}=    Evaluate    json.loads('''${response.text}''')    json
 
-    # Validate the username from the dictionary
     ${username}=    Get From Dictionary    ${response_data['data']}    username
     Should Be Equal    ${username}    ${EXPECTED_USERNAME}
 
-    # Validate the phone number from the dictionary
     ${phone}=    Get From Dictionary    ${response_data['data']}    phone
     Should Be Equal    ${phone}    ${EXPECTED_PHONE}
 
@@ -53,26 +47,19 @@ Login API - Failure Test
     ${full_url}=    Catenate    SEPARATOR=    ${BASE_URL}    ${LOGIN_ENDPOINT}
     ${login_payload}=    Create Dictionary    username=${INVALID_USERNAME}    password=${INVALID_PASSWORD}
 
-    # Define headers
     ${headers}=    Create Dictionary    Content-Type=application/json
 
-    # Send POST request with headers
     ${response}=    POST    ${full_url}    json=${login_payload}    headers=${headers}
 
-    # Log the response text to inspect the structure of the returned JSON
     Log    ${response.text}
 
-    # Ensure the response status code is 400 (since login failed)
     Should Be Equal As Numbers    ${response.status_code}    200
 
-    # Convert the JSON response to a dictionary using json.loads() from the JSON library
     ${response_data}=    Evaluate    json.loads('''${response.text}''')    json
 
-    # Validate the status is "Failed"
     ${status}=    Get From Dictionary    ${response_data}    status
     Should Be Equal    ${status}    Failed
 
-    # Validate the validation message
     ${validation_message}=    Get From Dictionary    ${response_data['validation']}    Login
     Should Be Equal    ${validation_message}    Login Gagal. Username atau password salah
 
